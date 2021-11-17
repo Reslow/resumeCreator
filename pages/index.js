@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Frame from "../components/Frame";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -12,11 +13,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>resumeCreator</h1>
-        <p className={styles.description}>create and download a resume</p>
+        <Header />
+        <Frame></Frame>
       </main>
 
-      <footer className={styles.footer}>by Fanny reslow</footer>
+      <footer className={styles.footer}>built by Fanny reslow</footer>
     </div>
   );
 }

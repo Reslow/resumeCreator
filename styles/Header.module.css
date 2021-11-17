@@ -1,0 +1,10 @@
+.header {
+  background-color: rgb(137, 187, 187);
+  position: absolute;
+  margin-left: 0;
+  margin-right: 0px;
+  left: 0;
+  padding: 10px;
+  color: white;
+  border-radius: 0px 0px 20px 0px;
+}

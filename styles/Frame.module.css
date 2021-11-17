@@ -1,0 +1,9 @@
+.frame {
+  border: black 1 px solid;
+  padding: 20px;
+  background-color: white;
+  margin-top: 30px;
+  border: rgba(238, 238, 238, 0.486) 1px solid;
+  border-radius: 5px;
+  box-shadow: rgba(165, 164, 164, 0.397) 1px 1px 1px 1px;
+}

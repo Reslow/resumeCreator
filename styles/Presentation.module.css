@@ -1,0 +1,16 @@
+.formContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile {
+  background-color: rgb(246, 249, 250);
+  width: 30%;
+}
+
+.demo {
+  width: 70%;
+  background-color: rgb(41, 40, 40);
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
