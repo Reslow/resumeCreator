@@ -1,5 +1,5 @@
 import style from "../styles/Experience.module.css";
-export default function Experience() {
+export default function Experience({ state, handleChange }) {
   return (
     <div className={style.experienceContainer}>
       <div className={style.workPeriodAndTitle}>
@@ -7,19 +7,33 @@ export default function Experience() {
           type="text"
           className={style.experienceHeadline}
           name="headline"
+          placeholder={"headline"}
+          value={state.headline}
+          onChange={handleChange}
         />
         <div className={style.workPeriod}>
           <label>From</label>
-          <input type="date" name="time" />
+          <input
+            type="date"
+            name="startTime"
+            value={state.startTime}
+            onChange={handleChange}
+          />
           <label>To</label>
-          <input type="date" name="time" />
+          <input
+            type="date"
+            name="endTime"
+            value={state.endTime}
+            onChange={handleChange}
+          />
         </div>
       </div>
       <div className={style.description}>
-        <textarea name="description"></textarea>
-      </div>
-      <div className={style.addbtnContainer}>
-        <button className={style.addbtn}>new</button>
+        <textarea
+          name="description"
+          value={state.description}
+          onChange={handleChange}
+        ></textarea>
       </div>
     </div>
   );

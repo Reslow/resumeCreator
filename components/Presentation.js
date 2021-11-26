@@ -1,27 +1,83 @@
-import style from "../styles/Presentation.module.css";
+import React from "react";
+import style from "../styles/presentation.module.css";
 
-export default function Presentation() {
+export default function Presentation({ state, handleChange }) {
   return (
     <div>
-      <form>
-        <div className={style.formContainer}>
-          <div className={style.profile}>
-            <label>upload profile image</label>
-            <input type="file" id="img" name="img" />
-            <textarea
-              name="presentation"
-              placeholder="why are you, What are your strengths?"
-            />
-          </div>
-          <div className={style.demo}>
-            <input type="text" name="fname" placeholder="Name" />
-            <input type="text" name="Lname" placeholder="Last Name" />
-            <input type="mail" name="Email" placeholder="Email address" />
-            <input type="number" name="Number" placeholder="phone number" />
-            <input type="text" name="Address" placeholder="your address" />
-          </div>
+      <div className={style.formContainer}>
+        <div className={style.profile}>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="first name"
+            value={state.firstName}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="last name"
+            value={state.lastName}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            value={state.email}
+            onChange={handleChange}
+          />
+          <input
+            type="number"
+            name="phone"
+            placeholder="tel"
+            value={state.phone}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="address"
+            value={state.address}
+            onChange={handleChange}
+          />
+          <input
+            type="number"
+            name="postalcode"
+            placeholder="pstalcode"
+            value={state.postalcode}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="city"
+            placeholder="city"
+            value={state.city}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="github"
+            placeholder="github"
+            value={state.github}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="linkedin"
+            placeholder="linkedin"
+            value={state.linkedin}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="website"
+            placeholder="website"
+            value={state.website}
+            onChange={handleChange}
+          />
         </div>
-      </form>
+      </div>
     </div>
   );
 }
