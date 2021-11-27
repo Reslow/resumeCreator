@@ -1,9 +1,9 @@
-export default function Preview({ state }) {
-  console.log(state.email);
-  console.log(state.firstName);
-
+import Image from "next/image";
+import styles from "../styles/Frame.module.css";
+export default function Preview({ state, selectedImage }) {
+  console.log(selectedImage);
   return (
-    <div>
+    <div className={styles.frame}>
       <p>Firstname: {state.firstName}</p>
       <p>Lastname {state.lastName}</p>
       <p>Email: {state.email}</p>
@@ -18,6 +18,15 @@ export default function Preview({ state }) {
       <p>startTime:{state.startTime}</p>
       <p>endTime:{state.endTime}</p>
       <p>description:{state.description}</p>
+      {selectedImage && (
+        <Image
+          id="profileimg"
+          src={`${selectedImage.src}`}
+          alt="your image"
+          height="100"
+          width="50"
+        />
+      )}
     </div>
   );
 }

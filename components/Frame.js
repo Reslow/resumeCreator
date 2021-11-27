@@ -22,6 +22,16 @@ export default function Frame() {
     description: "",
   });
 
+  const [selectedImage, setSelectedImage] = useState();
+
+  const imageChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage({
+        src: URL.createObjectURL(e.target.files[0]),
+      });
+    }
+  };
+
   const [isShow, setIsShow] = useState(true);
 
   const handleClick = () => {
@@ -42,11 +52,16 @@ export default function Frame() {
     <>
       {isShow ? (
         <div className={styles.frame}>
-          <Presentation state={state} handleChange={handleChange} />
+          <Presentation
+            state={state}
+            handleChange={handleChange}
+            imageChange={imageChange}
+            selectedImage={setSelectedImage}
+          />
           <Experience state={state} handleChange={handleChange} />
         </div>
       ) : (
-        <Prevew state={state} />
+        <Prevew state={state} selectedImage={selectedImage} />
       )}
       <button onClick={handleClick}>knapp</button>
     </>
