@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/Frame.module.css";
-export default function Preview({ state, selectedImage }) {
-  console.log(selectedImage);
+export default function Preview({ state, selectedImage, experiences }) {
   return (
     <div className={styles.frame}>
       <p>Firstname: {state.firstName}</p>
@@ -13,11 +12,6 @@ export default function Preview({ state, selectedImage }) {
       <p>city:{state.city}</p>
       <p>github:{state.github}</p>
       <p>Linkedin:{state.linkedin}</p>
-      <p>website:{state.website}</p>
-      <p>headline:{state.headline}</p>
-      <p>startTime:{state.startTime}</p>
-      <p>endTime:{state.endTime}</p>
-      <p>description:{state.description}</p>
       {selectedImage && (
         <Image
           id="profileimg"
@@ -27,6 +21,13 @@ export default function Preview({ state, selectedImage }) {
           width="50"
         />
       )}
+      {experiences.map((exp, i) => {
+        console.log(exp.description);
+        console.log(exp.startTime);
+        console.log(exp.endTime);
+        console.log(exp.headline);
+        return <p key={i}>{exp.description}</p>;
+      })}
     </div>
   );
 }

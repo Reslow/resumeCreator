@@ -1,13 +1,7 @@
 import React from "react";
 import style from "../styles/presentation.module.css";
-import Image from "next/dist/client/image";
 
-export default function Presentation({
-  state,
-  handleChange,
-  imageChange,
-  selectedImage,
-}) {
+export default function Presentation({ state, handleChange, imageChange }) {
   return (
     <div>
       <div className={style.formContainer}>
@@ -16,7 +10,7 @@ export default function Presentation({
             type="file"
             name="profileImage"
             placeholder="first name"
-            value={state.profileImage}
+            value={state ? state.profileImage : ""}
             accept="image/png, image/jpeg"
             onChange={imageChange}
             id="profileInput"
@@ -26,70 +20,70 @@ export default function Presentation({
             type="text"
             name="firstName"
             placeholder="first name"
-            value={state.firstName}
+            value={state ? state.firstName : ""}
             onChange={handleChange}
           />
           <input
             type="text"
             name="lastName"
             placeholder="last name"
-            value={state.lastName}
+            value={state ? state.lastName : ""}
             onChange={handleChange}
           />
           <input
             type="email"
             name="email"
             placeholder="email"
-            value={state.email}
+            value={state ? state.email : ""}
             onChange={handleChange}
           />
           <input
             type="number"
             name="phone"
             placeholder="tel"
-            value={state.phone}
+            value={state ? state.phone : ""}
             onChange={handleChange}
           />
           <input
             type="text"
             name="address"
             placeholder="address"
-            value={state.address}
+            value={state ? state.address : ""}
             onChange={handleChange}
           />
           <input
             type="number"
             name="postalcode"
             placeholder="pstalcode"
-            value={state.postalcode}
+            value={state ? state.postalcode : ""}
             onChange={handleChange}
           />
           <input
             type="text"
             name="city"
             placeholder="city"
-            value={state.city}
+            value={state ? state.city : ""}
             onChange={handleChange}
           />
           <input
             type="text"
             name="github"
             placeholder="github"
-            value={state.github}
+            value={state ? state.github : ""}
             onChange={handleChange}
           />
           <input
             type="text"
             name="linkedin"
             placeholder="linkedin"
-            value={state.linkedin}
+            value={state ? state.linkedin : ""}
             onChange={handleChange}
           />
           <input
             type="text"
             name="website"
             placeholder="website"
-            value={state.website}
+            value={state ? state.website : ""}
             onChange={handleChange}
           />
         </div>

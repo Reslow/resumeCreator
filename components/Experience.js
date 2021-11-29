@@ -1,39 +1,41 @@
 import style from "../styles/Experience.module.css";
-export default function Experience({ state, handleChange }) {
+export default function Experience({ experience, handleExperienceChange }) {
   return (
     <div className={style.experienceContainer}>
-      <div className={style.workPeriodAndTitle}>
-        <input
-          type="text"
-          className={style.experienceHeadline}
-          name="headline"
-          placeholder={"headline"}
-          value={state.headline}
-          onChange={handleChange}
-        />
-        <div className={style.workPeriod}>
-          <label>From</label>
+      <div>
+        <div className={style.workPeriodAndTitle}>
           <input
-            type="date"
-            name="startTime"
-            value={state.startTime}
-            onChange={handleChange}
+            type="text"
+            className={style.experienceHeadline}
+            name="headline"
+            placeholder={"headline"}
+            defaultValue={experience ? experience.headline : " "}
+            onChange={handleExperienceChange}
           />
-          <label>To</label>
-          <input
-            type="date"
-            name="endTime"
-            value={state.endTime}
-            onChange={handleChange}
-          />
+          <div className={style.workPeriod}>
+            <label>From</label>
+            <input
+              type="date"
+              name="startTime"
+              defaultValue={experience ? experience.startTime : null}
+              onChange={handleExperienceChange}
+            />
+            <label>To</label>
+            <input
+              type="date"
+              name="endTime"
+              defaultValue={experience ? experience.endTime : null}
+              onChange={handleExperienceChange}
+            />
+          </div>
         </div>
-      </div>
-      <div className={style.description}>
-        <textarea
-          name="description"
-          value={state.description}
-          onChange={handleChange}
-        ></textarea>
+        <div className={style.description}>
+          <textarea
+            name="description"
+            defaultValue={experience ? experience.description : ""}
+            onChange={handleExperienceChange}
+          ></textarea>
+        </div>
       </div>
     </div>
   );
