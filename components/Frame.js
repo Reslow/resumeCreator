@@ -3,6 +3,15 @@ import Presentation from "./Presentation";
 import Experience from "./Experience";
 import { useState } from "react";
 import Prevew from "./Preview";
+import GenericPdf from "../GenereicPDF";
+
+const initExperience = (id) => ({
+  headline: "",
+  startTime: "",
+  endTime: "",
+  description: "",
+  id: id,
+});
 
 export default function Frame() {
   const [state, setState] = useState({
@@ -15,16 +24,10 @@ export default function Frame() {
     phone: "",
     github: "",
     linkedin: "",
-  });
-  const initExperience = {
     website: "",
-    headline: "",
-    startTime: "",
-    endTime: "",
-    description: "",
-  };
+  });
 
-  const [experiences, setExperiences] = useState([initExperience]);
+  const [experiences, setExperiences] = useState([initExperience(0)]);
 
   const [selectedImage, setSelectedImage] = useState();
 
@@ -56,7 +59,7 @@ export default function Frame() {
 
     const value = e.target.value;
     const newState = experiences.map((exp, index) => {
-      if (index === id) {
+      if (index == id) {
         return {
           ...exp,
           [name]: value,
@@ -69,10 +72,16 @@ export default function Frame() {
     setExperiences(newState);
   };
 
-  const removeExperience = (i) => {
-    const values = [...experiences];
-    values.splice(i, 1);
-    setExperiences(values);
+  const addExperience = () => {
+    const id = Math.max(...experiences.map((i) => i.id));
+    setExperiences([...experiences, initExperience(id + 1)]);
+  };
+
+  const removeExperience = (id) => {
+    let val = experiences.filter((e) => id !== e.id);
+    console.log("removing this: ", val);
+
+    setExperiences(val);
   };
 
   return (
@@ -85,15 +94,18 @@ export default function Frame() {
             imageChange={imageChange}
             selectedImage={setSelectedImage}
           />
-          {experiences.map((experience, i) => (
+          {experiences.map((experience) => (
             <Experience
-              key={i}
-              state={experience}
-              initExperience={initExperience}
+              key={experience.id}
+              id={experience.id}
+              experience={experience}
               experiences={experiences}
               setExperiences={setExperiences}
               removeExperience={removeExperience}
-              handleExperienceChange={(e) => handleExperienceChange(e, i)}
+              handleExperienceChange={(e) =>
+                handleExperienceChange(e, experience.id)
+              }
+              addExperience={addExperience}
             />
           ))}
         </div>
@@ -105,6 +117,7 @@ export default function Frame() {
         />
       )}
       <button onClick={handleClick}>Preview</button>
+      <GenericPdf rootElementId="test" downloadFileName="CustomPdf" />
     </>
   );
 }

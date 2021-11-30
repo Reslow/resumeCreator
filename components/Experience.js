@@ -1,13 +1,13 @@
 import style from "../styles/Experience.module.css";
+
 export default function Experience({
   experience,
   handleExperienceChange,
   experiences,
-  initExperience,
-  setExperiences,
   removeExperience,
-  i,
+  addExperience,
 }) {
+  console.log(experience.id);
   return (
     <div className={style.experienceContainer}>
       <div>
@@ -25,7 +25,7 @@ export default function Experience({
             <input
               type="date"
               name="startTime"
-              defaultValue={experience ? experience.startTime : null}
+              defaultValue={experience ? experience.startTime : ""}
               onChange={handleExperienceChange}
             />
             <label>To</label>
@@ -43,12 +43,12 @@ export default function Experience({
             defaultValue={experience ? experience.description : ""}
             onChange={handleExperienceChange}
           ></textarea>
-          <button
-            onClick={() => setExperiences([...experiences, initExperience])}
-          >
-            add experience
-          </button>
-          <button onClick={() => removeExperience(i)}>remove experience</button>
+          <button onClick={() => addExperience()}>add experience</button>
+          {experiences.length > 1 && (
+            <button onClick={() => removeExperience(experience.id)}>
+              remove experience
+            </button>
+          )}
         </div>
       </div>
     </div>
