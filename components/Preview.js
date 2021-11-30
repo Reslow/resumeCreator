@@ -22,11 +22,15 @@ export default function Preview({ state, selectedImage, experiences }) {
         />
       )}
       {experiences.map((exp, i) => {
-        console.log(exp.description);
-        console.log(exp.startTime);
-        console.log(exp.endTime);
-        console.log(exp.headline);
-        return <p key={i}>{exp.description}</p>;
+        console.log(exp);
+        return (
+          <div key={i}>
+            <p>{exp.headline}</p>
+            <p>{exp.startTime}</p>
+            <p>{exp.endTime}</p>
+            <p>{exp.description}</p>
+          </div>
+        );
       })}
     </div>
   );

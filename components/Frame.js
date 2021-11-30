@@ -69,6 +69,12 @@ export default function Frame() {
     setExperiences(newState);
   };
 
+  const removeExperience = (i) => {
+    const values = [...experiences];
+    values.splice(i, 1);
+    setExperiences(values);
+  };
+
   return (
     <>
       {isShow ? (
@@ -83,6 +89,10 @@ export default function Frame() {
             <Experience
               key={i}
               state={experience}
+              initExperience={initExperience}
+              experiences={experiences}
+              setExperiences={setExperiences}
+              removeExperience={removeExperience}
               handleExperienceChange={(e) => handleExperienceChange(e, i)}
             />
           ))}
@@ -94,9 +104,6 @@ export default function Frame() {
           experiences={experiences}
         />
       )}
-      <button onClick={() => setExperiences([...experiences, initExperience])}>
-        add
-      </button>
       <button onClick={handleClick}>Preview</button>
     </>
   );

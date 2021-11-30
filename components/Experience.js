@@ -1,5 +1,13 @@
 import style from "../styles/Experience.module.css";
-export default function Experience({ experience, handleExperienceChange }) {
+export default function Experience({
+  experience,
+  handleExperienceChange,
+  experiences,
+  initExperience,
+  setExperiences,
+  removeExperience,
+  i,
+}) {
   return (
     <div className={style.experienceContainer}>
       <div>
@@ -35,6 +43,12 @@ export default function Experience({ experience, handleExperienceChange }) {
             defaultValue={experience ? experience.description : ""}
             onChange={handleExperienceChange}
           ></textarea>
+          <button
+            onClick={() => setExperiences([...experiences, initExperience])}
+          >
+            add experience
+          </button>
+          <button onClick={() => removeExperience(i)}>remove experience</button>
         </div>
       </div>
     </div>
