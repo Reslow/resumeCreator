@@ -120,7 +120,7 @@ export default function Frame() {
           />
         )}
         <button onClick={handleClick} className={styles.previewBtn}>
-          Preview
+          Preview/workmode
         </button>
       </div>
     </>
