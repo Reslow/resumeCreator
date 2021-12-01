@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../styles/presentation.module.css";
+import style from "../styles/Presentation.module.css";
 import Input from "./Input";
 
 export default function Presentation({ state, handleChange, imageChange }) {
