@@ -1,38 +1,11 @@
-.formContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.profile {
-  background-color: rgb(246, 249, 250);
-  width: 30%;
-}
-
-.demo {
-  width: 70%;
-  background-color: rgb(41, 40, 40);
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.save {
-  margin-top: 10px;
+.container {
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  min-width: 100%;
 }
-
-.pre,
-.down {
-  background-color: indianred;
-  padding: 20px 35px 20px 35px;
-  color: white;
-}
-
-.pre {
-  border-radius: 5px 0px 0px 5px;
-}
-
-.down {
-  border-radius: 0px 5px 5px 0px;
+.grid {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 50% 50%;
 }

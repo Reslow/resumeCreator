@@ -1,4 +1,5 @@
 import style from "../styles/Experience.module.css";
+import Input from "./Input";
 
 export default function Experience({
   experience,
@@ -7,29 +8,26 @@ export default function Experience({
   removeExperience,
   addExperience,
 }) {
-  console.log(experience.id);
   return (
     <div className={style.experienceContainer}>
       <div>
         <div className={style.workPeriodAndTitle}>
-          <input
-            type="text"
-            className={style.experienceHeadline}
+          <Input
             name="headline"
             placeholder={"headline"}
             defaultValue={experience ? experience.headline : " "}
             onChange={handleExperienceChange}
           />
           <div className={style.workPeriod}>
-            <label>From</label>
-            <input
+            <label className={style.labels}>From</label>
+            <Input
               type="date"
               name="startTime"
               defaultValue={experience ? experience.startTime : ""}
               onChange={handleExperienceChange}
             />
-            <label>To</label>
-            <input
+            <label className={style.labels}>To</label>
+            <Input
               type="date"
               name="endTime"
               defaultValue={experience ? experience.endTime : null}
@@ -38,15 +36,16 @@ export default function Experience({
           </div>
         </div>
         <div className={style.description}>
+          <h2>Describe your experience</h2>
           <textarea
             name="description"
             defaultValue={experience ? experience.description : ""}
             onChange={handleExperienceChange}
           ></textarea>
-          <button onClick={() => addExperience()}>add experience</button>
+          <button onClick={() => addExperience()}>+</button>
           {experiences.length > 1 && (
             <button onClick={() => removeExperience(experience.id)}>
-              remove experience
+              Delete
             </button>
           )}
         </div>

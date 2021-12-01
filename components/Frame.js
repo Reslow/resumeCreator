@@ -3,7 +3,6 @@ import Presentation from "./Presentation";
 import Experience from "./Experience";
 import { useState } from "react";
 import Prevew from "./Preview";
-import GenericPdf from "../GenereicPDF";
 
 const initExperience = (id) => ({
   headline: "",
@@ -41,7 +40,7 @@ export default function Frame() {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     setIsShow(!isShow);
   };
 
@@ -79,45 +78,51 @@ export default function Frame() {
 
   const removeExperience = (id) => {
     let val = experiences.filter((e) => id !== e.id);
-    console.log("removing this: ", val);
 
     setExperiences(val);
   };
 
   return (
     <>
-      {isShow ? (
-        <div className={styles.frame}>
-          <Presentation
-            state={state}
-            handleChange={handleChange}
-            imageChange={imageChange}
-            selectedImage={setSelectedImage}
-          />
-          {experiences.map((experience) => (
-            <Experience
-              key={experience.id}
-              id={experience.id}
-              experience={experience}
-              experiences={experiences}
-              setExperiences={setExperiences}
-              removeExperience={removeExperience}
-              handleExperienceChange={(e) =>
-                handleExperienceChange(e, experience.id)
-              }
-              addExperience={addExperience}
+      <div className={styles.container}>
+        {isShow ? (
+          <div className={styles.frame}>
+            <h1>Ready to Create Your Resume?</h1>
+
+            <Presentation
+              state={state}
+              handleChange={handleChange}
+              imageChange={imageChange}
+              setSelectedImage={setSelectedImage}
             />
-          ))}
-        </div>
-      ) : (
-        <Prevew
-          state={state}
-          selectedImage={selectedImage}
-          experiences={experiences}
-        />
-      )}
-      <button onClick={handleClick}>Preview</button>
-      <GenericPdf rootElementId="test" downloadFileName="CustomPdf" />
+            <h1>Experiences</h1>
+            <p>Here you can add your work/educational experiences</p>
+            {experiences.map((experience) => (
+              <Experience
+                key={experience.id}
+                id={experience.id}
+                experience={experience}
+                experiences={experiences}
+                setExperiences={setExperiences}
+                removeExperience={removeExperience}
+                handleExperienceChange={(e) =>
+                  handleExperienceChange(e, experience.id)
+                }
+                addExperience={addExperience}
+              />
+            ))}
+          </div>
+        ) : (
+          <Prevew
+            state={state}
+            selectedImage={selectedImage}
+            experiences={experiences}
+          />
+        )}
+        <button onClick={handleClick} className={styles.previewBtn}>
+          Preview
+        </button>
+      </div>
     </>
   );
 }

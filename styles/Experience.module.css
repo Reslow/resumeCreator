@@ -1,21 +1,40 @@
 .experienceContainer {
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.description {
-  display: flex;
-  flex-direction: column;
-}
-
-.experienceHeadline {
+  margin-top: 5%;
+  height: 100%;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.labels {
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 15px;
 }
 
 .description textarea {
-  width: 300px;
-  height: 150px;
+  height: 200px;
   resize: none;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  font-size: 24px;
+  border: rgb(240, 240, 240) 1px solid;
+  box-shadow: rgb(194, 193, 193) 2px 4px 3px 1px;
+  padding: 20px;
+}
+.description textarea:hover {
+  box-shadow: 0 0 5pt 0.5pt #d3d3d3;
+}
+
+.description textarea:focus {
+  background-color: #fafafa;
+  outline: none;
+  box-shadow: 0 0 5pt 2pt #d3d3d3;
+}
+
+.workPeriod {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-items: space-evenly;
+  margin: 35px 0px 15px 0px;
 }

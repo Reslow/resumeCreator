@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Frame from "../components/Frame";
 import React from "react";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {/* <Header /> */}
+        <Header />
         <Frame></Frame>
       </main>
 

@@ -1,11 +1,49 @@
-.frame {
-  border: black 1 px solid;
-  padding: 20px;
+.divToDownload {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: none;
   background-color: white;
-  margin-top: 30px;
-  border: rgba(238, 238, 238, 0.486) 1px solid;
-  border-radius: 5px;
-  box-shadow: rgba(165, 164, 164, 0.397) 1px 1px 1px 1px;
-  width: 210mm;
-  height: 297mm;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  font-size: large;
+}
+.presentation {
+  display: flex;
+  flex-direction: row;
+}
+.presentationInput {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 50% 50%;
+  min-width: 50%;
+  max-width: 80%;
+}
+.frame {
+  display: flex;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 100vh;
+  padding-top: 30px;
+}
+
+.container {
+  padding-bottom: 10px;
+}
+
+.previewBtn {
+  display: flex;
+  background-color: white;
+  border: #009584 solid 3px;
+  color: #009e84;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
+  font-size: 18px;
 }
